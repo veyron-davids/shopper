@@ -9,16 +9,15 @@ function ProductImageGallery(props) {
     if (props.detail.images && props.detail.images.length > 0) {
       let images = [];
       props.detail.images &&
-        props.detail.images.map((item) => {
-          images.push({
-            original: `http://localhost:3900/${item}`,
-            thumbnail: `http://localhost:3900/${item}`,
-          });
+        images.push({
+          original: props.detail.images,
+          thumbnail: props.detail.images,
         });
       setImages(images);
     }
   }, [props.detail]);
-  console.log(Images)
+  console.log(Images);
+  console.log(props.detail.images);
 
   return (
     <div className="productGallery">

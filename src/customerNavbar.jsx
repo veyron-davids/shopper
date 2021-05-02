@@ -1,38 +1,38 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { AiOutlineUser } from "react-icons/ai";
-import { FiUserPlus } from "react-icons/fi";
 import { BiHelpCircle } from "react-icons/bi";
-import { Link } from "react-router-dom";
-import "./Styles.css";
+import { FiUserPlus } from "react-icons/fi";
+import { NavLink } from "react-router-dom";
+import classes from "./Styles.module.css";
 
 const CustomerNavbar = () => {
   return (
-    <React.Fragment>
-      <Link
-        className="nav-link "
+    <Fragment>
+      <NavLink
+        className={classes.nav__link}
         to="/signin"
         style={{ textDecoration: "none", color: "white" }}
       >
         <AiOutlineUser />
         <span>Login</span>
-      </Link>
-      <Link
-        className="nav-link "
+      </NavLink>
+      <NavLink
+        className={classes.nav__link}
         to="/signup"
         style={{ textDecoration: "none", color: "white" }}
       >
         <FiUserPlus />
         <span>Register</span>
-      </Link>
-      <Link
-        className="nav-link "
+      </NavLink>
+      <NavLink
+        className={classes.nav__link}
         to="/help"
         style={{ textDecoration: "none", color: "white" }}
       >
         <BiHelpCircle />
         <span>Help</span>
-      </Link>
-    </React.Fragment>
+      </NavLink>
+    </Fragment>
   );
 };
 

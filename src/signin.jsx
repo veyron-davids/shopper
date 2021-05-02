@@ -43,7 +43,7 @@ class Signin extends Form {
           <div className="sign-in-container">
             <form>
               <div className="sign-title">
-                <span>Login </span>
+                <span>Account Login </span>
               </div>
               <div className="form-down-signin">
                 {this.renderInput("email", "Email")}
@@ -51,6 +51,16 @@ class Signin extends Form {
               <div className="form-down-signin">
                 {this.renderInput("password", "Password", "password")}
               </div>
+              {/* <input
+                type="checkbox"
+                id="remember"
+                name="remember"
+                value="Bike"
+              />
+              <label for="remember" className="sign-title">
+                Remember Me
+              </label>
+              <br></br> */}
               <div className="button-downest" onClick={this.handleSubmit}>
                 {this.renderButtonSignIn("Login")}
               </div>

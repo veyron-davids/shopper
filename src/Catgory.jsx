@@ -1,13 +1,15 @@
 import React from "react";
-import FilterFeature from "./filterFeature";
-import SeacrchFeature from "./seacrchFeature";
-import "./Styles.css";
+import Flip from "react-reveal/Flip";
+import classes from "./Styles.module.css";
 
 function Catgory() {
   return (
-    <div className="category-container">
-        <h2 className="category-title">All Collections</h2>
-
+    <div className={classes.category__container}>
+      <Flip bottom>
+        <h2 className={classes.category__title}>
+          All Collections
+        </h2>
+      </Flip>
       {/* <SeacrchFeature /> */}
       {/* <FilterFeature /> */}
     </div>

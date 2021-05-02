@@ -1,13 +1,10 @@
-import React, { Component } from "react";
 import Joi from "joi-browser";
-import Input from "./Input";
+import React, { Component } from "react";
 import FilterInput from "./categorySelect";
-import UploadInput from "./uploadInput";
-
-
-import "./signup.css";
+import Input from "./Input";
 import "./signin.css";
-
+import "./signup.css";
+import UploadInput from "./uploadInput";
 
 class Form extends Component {
   state = {
@@ -38,7 +35,7 @@ class Form extends Component {
     const errors = this.validate();
     this.setState({ errors: errors || {} });
     if (errors) return;
-    
+
     this.doSubmit();
   };
 

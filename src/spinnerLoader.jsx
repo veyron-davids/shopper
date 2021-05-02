@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import Loader from "./loader";
+// import React, { useState } from "react";
+// import Loader from "./loader";
 
-const SpinnerLoader = () => {
-  const [loading, setLoading] = useState(false);
-  return [
-    loading ? <Loader /> : null,
-    () => setLoading(true),
-    () => setLoading(false),
-  ];
-};
+// const SpinnerLoader = () => {
+//   const [loading, setLoading] = useState(false);
+//   return [
+//     loading ? <Loader /> : null,
+//     () => setLoading(true),
+//     () => setLoading(false),
+//   ];
+// };
 
-export default SpinnerLoader;
+// export default SpinnerLoader;

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Styles.css";
+import classes from "./Styles.module.css";
 import "./signup.css";
 
   const Category = [

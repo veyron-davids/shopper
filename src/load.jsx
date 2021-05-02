@@ -1,5 +1,5 @@
 import React from "react";
-import "./Styles.css";
+import classes from "./Styles.module.css";
 
 const Load = (props) => {
     return (

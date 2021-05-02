@@ -1,10 +1,10 @@
 import React, { useContext, useState } from "react";
 import { BiHelpCircle, BiUserCheck, BiUserX } from "react-icons/bi";
 import { FiShoppingCart } from "react-icons/fi";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { CartContext } from "./cart.provider";
 import CurrentUserContext from "./context/current-user-context";
-import "./Styles.css";
+import classes from "./Styles.module.css";
 
 const UserNavbar = () => {
   const { cartItemsCount, hidden, toggleHidden } = useContext(CartContext);
@@ -16,17 +16,17 @@ const UserNavbar = () => {
 
   return (
     <React.Fragment>
-      <Link
-        className="nav-link "
+      <NavLink
+        className={classes.nav__link}
         to="/profile"
         style={{ textDecoration: "none", color: "white" }}
       >
         <BiUserCheck />
         <span>{`Hi, ${currentUser.FirstName}`}</span>{" "}
-      </Link>
-      <Link
-        className="nav-link"
-        id="nav-link-two"
+      </NavLink>
+      <NavLink
+        className={classes.nav__link}
+        id={classes.nav__link_two}
         onClick={() => {
           toggleHidden();
         }}
@@ -34,23 +34,23 @@ const UserNavbar = () => {
       >
         <FiShoppingCart />
         <span>Cart</span>
-        <div className="cart-count">{cartItemsCount}</div>
-      </Link>
-      <Link
-        className="nav-link "
+        <div className={classes.cart__count}>{cartItemsCount}</div>
+      </NavLink>
+      <NavLink
+        className={classes.nav__link}
         to="/help"
         style={{ textDecoration: "none", color: "white" }}
       >
         <BiHelpCircle />
         <span>Help</span>
-      </Link>
-      <Link
-        className="nav-link "
+      </NavLink>
+      <NavLink
+        className={classes.nav__link}
         to="/logout"
         style={{ textDecoration: "none", color: "white" }}
       >
         <BiUserX /> <span>Sign Out</span>
-      </Link>
+      </NavLink>
     </React.Fragment>
   );
 };

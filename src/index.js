@@ -1,19 +1,18 @@
-import "bootstrap/dist/css/bootstrap.min.css";
 import React from "react";
 import ReactDOM from "react-dom";
-
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import "./index.css";
+import { Provider } from "react-redux";
+import store from "./store/index";
 import reportWebVitals from "./reportWebVitals";
-import CartProvider from "./cart.provider";
 
 ReactDOM.render(
-  <CartProvider>
-    <BrowserRouter>
+  <BrowserRouter>
+    <Provider store={store}>
       <App />
-    </BrowserRouter>
-  </CartProvider>,
+    </Provider>
+  </BrowserRouter>,
   document.getElementById("root")
 );
 

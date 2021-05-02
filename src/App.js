@@ -1,45 +1,62 @@
-import React, { Component } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Admin from "./adminDashboard";
-import Cart from "./cart";
-import CheckoutPage from "./CheckoutPage";
+// import Admin from "./adminDashboard";
+// import Cart from "./cart";
+// import CheckoutPage from "./CheckoutPage";
 import CurrentUserContext from "./context/current-user-context";
 import Footer from "./Footer";
-import Help from "./help";
-import Logout from "./logout";
+// import Help from "./help";
+// import Logout from "./logout";
 import Navbar from "./navbar";
-import NotFound from "./notFound";
-import ProductPreview from "./productPreview";
-import ProductsPage from "./productsPage";
-import ProductUpload from "./productUpload";
-import Profile from "./profile";
+import Loader from "./loader";
+// import NotFound from "./notFound";
+// import ProductEdit from "./ProductEdit";
+// import ProductPreview from "./productPreview";
+// import ProductsPage from "./productsPage";
+// import ProductUpload from "./productUpload";
+// import Profile from "./profile";
 import ProtectedRoute from "./protectedRoute";
 import auth from "./services/authService";
-import Signin from "./signin";
-import Signup from "./signup";
+// import Signin from "./signin";
+// import Signup from "./signup";
+import SpinnerLoader from "./spinnerLoader";
+import Crumb from "./crumb";
 
-class App extends Component {
-  constructor() {
-    super();
+const Admin = React.lazy(() => import("./adminDashboard"));
+const Cart = React.lazy(() => import("./cart"));
+const CheckoutPage = React.lazy(() => import("./CheckoutPage"));
+const Help = React.lazy(() => import("./help"));
+const Logout = React.lazy(() => import("./logout"));
+const NotFound = React.lazy(() => import("./notFound"));
+const ProductEdit = React.lazy(() => import("./ProductEdit"));
+const ProductPreview = React.lazy(() => import("./productPreview"));
+const ProductsPage = React.lazy(() => import("./productsPage"));
+const ProductUpload = React.lazy(() => import("./productUpload"));
+const Profile = React.lazy(() => import("./profile"));
+const Signin = React.lazy(() => import("./signin"));
+const Signup = React.lazy(() => import("./signup"));
 
-    this.state = {
-      currentUser: null,
-    };
-  }
 
-  componentDidMount() {
+function App() {
+  const [currentUser, setCurrentUser] = useState(null);
+
+  useEffect(() => {
     const user = auth.getCurrentUser();
-    this.setState({ currentUser: user });
-  }
-  render() {
-    // console.log(this.state.currentUser.isAdmin === true );
+    setCurrentUser(user);
+  }, []);
 
-    return (
-      <div>
-        <CurrentUserContext.Provider value={this.state.currentUser}>
-          <Navbar />
+  return (
+    <div>
+      <CurrentUserContext.Provider value={currentUser}>
+        <Navbar />
+        {/* <Crumb /> */}
+        <Suspense
+          fallback={
+              <Loader />
+          }
+        >
           <Switch>
             <ProtectedRoute path="/admin" component={Admin} />
             <Route path="/help" component={Help} />
@@ -51,6 +68,7 @@ class App extends Component {
               component={ProductPreview}
             />
             <ProtectedRoute path="/newproduct" component={ProductUpload} />
+            <ProtectedRoute path="/editproduct" component={ProductEdit} />
             <Route path="/signin" component={Signin} />
             <Route path="/logout" component={Logout} />
             <Route path="/signup" component={Signup} />
@@ -58,12 +76,12 @@ class App extends Component {
             <Redirect from="/" exact to="/Products" />
             <Redirect to="/not-found" component={NotFound} />
           </Switch>
-        </CurrentUserContext.Provider>
-        <ToastContainer />
-        <Footer />
-      </div>
-    );
-  }
+        </Suspense>
+      </CurrentUserContext.Provider>
+      <ToastContainer />
+      <Footer />
+    </div>
+  );
 }
 
 export default App;
