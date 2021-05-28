@@ -2,9 +2,8 @@
   margin: 0;
   font-size: 1.1rem;
   line-height: 1.2rem;
-  /* background-color: #f8f9fa #eee; */
-  background-color: #e2e2e9;
-  font-family: 'Open Sans Condensed', sans-serif;
+  background-color: #eaeded;
+  font-family: "Open Sans Condensed", sans-serif;
 }
 
 /***************************************/
@@ -26,13 +25,7 @@
   color: rebeccapurple;
 }
 
-.navbar {
-  display: flex;
-  background-color: black;
-  height: 80px;
-  align-items: center;
-  justify-content: space-between;
-}
+
 
 /* @media screen and (max-width: 400px) {
   .navbar {
@@ -41,42 +34,16 @@
   }
 } */
 
-.nav__tag {
-  margin-left: auto;
-  display: flex;
-  margin-right: 8%;
-  flex: 1;
+.paginate {
+  margin: auto;
+  color: #32ca84;
 }
 
-@media screen and (max-width: 400px) {
-  .nav__logout {
-    display: none;
-  }
-}
 
-@media screen and (max-width: 950px) {
-  .nav__logout {
-    display: none;
-  }
-}
 
-.nav__logout:hover {
-  color: #dc143c;
-}
 
-.nav__link {
-  color: #fff;
-  text-align: center;
-  text-decoration: none;
-  list-style: none;
-  font-size: 1.2rem;
-  cursor: pointer;
-  display: flex;
-  flex: 1;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
+
+
 
 /* @media screen and (max-width: 400px) {
   .nav-link {
@@ -180,6 +147,7 @@ margin-top: 200px;
   display: flex;
   margin-top: 30px;
   overflow: hidden;
+  width: 100%;
 }
 
 .rigt__bar {
@@ -340,8 +308,11 @@ margin-top: 200px;
   cursor: pointer;
 }
 
-.category__title {
+.category__container h2 {
   padding-top: 20px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: black;
 }
 
 @media screen and (max-width: 400px) {
@@ -448,7 +419,7 @@ button {
 .footer {
   background-color: #32ca84;
   height: 30vh;
-  margin-top: 60px;
+ 
 }
 
 /***************************************/
@@ -489,6 +460,7 @@ button {
   width: 60%;
   background-color: white;
   height: 80vh;
+  border: 1px solid black;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin-left: 50px;
 }
@@ -748,22 +720,6 @@ button {
   justify-content: space-between;
 }
 
-.ProductUpload {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 11% 0 11%;
-  justify-content: center;
-  align-content: center;
-}
-
-.upload__container {
-  display: flex;
-  width: 70%;
-  flex-direction: column;
-  margin-top: 60px;
-  justify-content: center;
-  align-items: center;
-}
 .upload__container > form {
   width: 100%;
 }
@@ -781,13 +737,6 @@ button {
   flex-direction: column;
   width: 100%;
   padding: 20px;
-}
-
-.upload__title {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 30px;
-  text-align: center;
 }
 
 .one {

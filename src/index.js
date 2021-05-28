@@ -6,6 +6,9 @@ import "./index.css";
 import { Provider } from "react-redux";
 import store from "./store/index";
 import reportWebVitals from "./reportWebVitals";
+import { fetchUser } from "./store/auth-slice";
+
+store.dispatch(fetchUser())
 
 ReactDOM.render(
   <BrowserRouter>

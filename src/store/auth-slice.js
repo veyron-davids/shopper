@@ -1,25 +1,23 @@
-// import { createStore } from "@reduxjs/toolkit";
-// import jwtDecode from "jwt-decode";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import auth from "../services/authService";
 
-// const tokenKey = "token";
+const initialState = [];
 
-// const authSlice = createStore({
-//   name: "auth",
-//   initialState: { user: null },
-//   reducers: {
-//     setAuth(state, action) {
-//       state.user = action.payload;
-//     },
-//     getCurrentUser(state, action) {
-//       try {
-//         action.payload = localStorage.getItem(tokenKey);
-//         state.user = jwtDecode(state.user);
-//       } catch (ex) {
-//         return null;
-//       }
-//     },
-//   },
-// });
+export const fetchUser = createAsyncThunk("auth/fetchUser", async () => {
+  const user = await auth.getCurrentUser();
+  console.log(user);
+  return user;
+});
 
-// export const authActions = authSlice.actions;
-// export default authSlice;
+const authSlice = createSlice({
+  name: "auth",
+  initialState,
+  reducer: {},
+  extraReducers: {
+    [fetchUser.fulfilled]: (state, action) => {
+      return action.payload
+    },
+  },
+});
+
+export default authSlice.reducer;

@@ -1,56 +1,51 @@
-import React, { useContext, useState } from "react";
+import React from "react";
 import { BiHelpCircle, BiUserCheck, BiUserX } from "react-icons/bi";
 import { FiShoppingCart } from "react-icons/fi";
-import { NavLink } from "react-router-dom";
-import { CartContext } from "./cart.provider";
-import CurrentUserContext from "./context/current-user-context";
-import classes from "./Styles.module.css";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import classes from "./nav.module.css";
 
 const UserNavbar = () => {
-  const { cartItemsCount, hidden, toggleHidden } = useContext(CartContext);
-  const currentUser = useContext(CurrentUserContext);
-  const [active, setActive] = useState(true);
-  const handleActive = () => {
-    setActive(!active);
-  };
+  const currentUser = useSelector((state) => state.auth);
+  console.log(currentUser);
 
   return (
     <React.Fragment>
-      <NavLink
+      <Link
         className={classes.nav__link}
         to="/profile"
         style={{ textDecoration: "none", color: "white" }}
       >
         <BiUserCheck />
         <span>{`Hi, ${currentUser.FirstName}`}</span>{" "}
-      </NavLink>
-      <NavLink
+      </Link>
+      <span
         className={classes.nav__link}
         id={classes.nav__link_two}
-        onClick={() => {
-          toggleHidden();
-        }}
+        // onClick={() => {
+        //   toggleHidden();
+        // }}
         style={{ textDecoration: "none", color: "white" }}
       >
         <FiShoppingCart />
         <span>Cart</span>
-        <div className={classes.cart__count}>{cartItemsCount}</div>
-      </NavLink>
-      <NavLink
+        <div className={classes.cart__count}>{}</div>
+      </span>
+      <Link
         className={classes.nav__link}
         to="/help"
         style={{ textDecoration: "none", color: "white" }}
       >
         <BiHelpCircle />
         <span>Help</span>
-      </NavLink>
-      <NavLink
+      </Link>
+      <Link
         className={classes.nav__link}
         to="/logout"
         style={{ textDecoration: "none", color: "white" }}
       >
         <BiUserX /> <span>Sign Out</span>
-      </NavLink>
+      </Link>
     </React.Fragment>
   );
 };

@@ -1,50 +1,66 @@
-.signup {
+.ProductUpload {
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
   margin-top: 40px;
-  height: 100vh;
   width: 100%;
-  margin-bottom: 50px;
-  justify-content: center;
+  justify-content: space-around;
+  align-items: center;
 }
 
-.sign-title {
+.preview__img {
+  width: 48%;
+  height: 250px;
+  border: 1px solid black;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.preview__span{
+    text-align: center;
+}
+
+.upload__title {
   text-align: center;
+  font-style: inherit;
   padding: 10px;
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 50px;
   width: 100%;
   color: #32ca84;
-  
+  margin-top: 30px;
 }
 
-
-
-.sign-up-container {
-  width: 50%;
+.select {
+  color: black;
+}
+.upload__container {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
   justify-content: center;
   align-content: center;
-  margin: 10px 300px 30px 300px;
- box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   background-color: white;
   padding: 50px;
 }
 
-.form-up {
+.form__up {
   display: flex;
   width: 100%;
   padding: 10px 0;
   justify-content: space-between;
 }
 
-
-.text-field{
+.text__field {
   width: 48%;
- margin-left: 15px;
+  margin-left: 15px;
 }
 
-.custom-button-up {
+.custom__button__up {
   width: 48%;
   height: 50px;
   letter-spacing: 0.5px;
@@ -52,7 +68,7 @@
   padding: 0 35px 0 35px;
   font-size: 15px;
   font-weight: bold;
-  background-color: #32ca84;;
+  background-color: #32ca84;
   color: white;
   border: none;
   border-radius: 10px;
@@ -60,14 +76,12 @@
   display: flex;
   justify-content: center;
   margin-top: 25px;
+  margin-bottom: 30px;
 }
-
-
-
 
 .details-up {
   color: black;
   margin-top: 20px;
   padding-left: 5px;
-margin-left: 40px;
+  margin-left: 40px;
 }

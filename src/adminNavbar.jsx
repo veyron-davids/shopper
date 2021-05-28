@@ -1,28 +1,31 @@
-import React, { useContext } from "react";
+import React, { useEffect } from "react";
 import { BiUserCheck, BiUserX } from "react-icons/bi";
-import { NavLink } from "react-router-dom";
-import CurrentUserContext from "./context/current-user-context";
-import classes from "./Styles.module.css";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchUser } from "./store/auth-actions";
+import { Link } from "react-router-dom";
+import navStyle from "./nav.module.css";
 
 const AdminNavbar = () => {
-  const currentUser = useContext(CurrentUserContext);
+  const currentUser = useSelector((state) => state.auth);
+  console.log(currentUser)
+
   return (
     <React.Fragment>
-      <NavLink
-        className={classes.nav__link}
+      <Link
+        className={navStyle.nav__link}
         to="/admin"
         style={{ textDecoration: "none", color: "white" }}
       >
         <BiUserCheck />
         <span>{`Hi Admin, ${currentUser.FirstName}`}</span>{" "}
-      </NavLink>
-      <NavLink
-        className={classes.nav__link}
+      </Link>
+      <Link
+        className={navStyle.nav__link}
         to="/logout"
         style={{ textDecoration: "none", color: "white" }}
       >
         <BiUserX /> <span>Sign Out</span>
-      </NavLink>
+      </Link>
     </React.Fragment>
   );
 };

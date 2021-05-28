@@ -1,7 +1,6 @@
 .wrapper {
   width: 300px;
-  height: 400px;
-  // margin-bottom: 80px;
+  height: 360px;
   background: white;
    font-family: 'Open Sans Condensed', sans-serif;
   cursor: pointer;
@@ -31,7 +30,7 @@
       .left {
         height: 100%;
         width: 50%;
-        background: white;
+        background: #f4f4f4;
         position: relative;
         float: left;
 
@@ -44,7 +43,8 @@
         .name {
           position: absolute;
           top: 20px;
-          left: 5%;
+          right: 5%;
+           color: rgb(119, 24, 24);
           font-size: 1.2rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -146,17 +146,22 @@
     height: 140px;
     position: absolute;
     top: -70px;
+    color: white;
     right: -70px;
     border-radius: 0px 0px 200px 200px;
     transition: all 0.5s, border-radius 2s, top 1s;
     overflow: hidden;
     .icon {
       position: absolute;
-      font-size: inherit;
-      right: 85px;
+      right: 65px;
       top: 85px;
       color: white;
       opacity: 1;
+
+      span{
+        color: white;
+         font-size: 1.1rem;
+      }
     }
     &:hover {
       width: 100%;
@@ -201,6 +206,5 @@
   .wrapper {
     width: 250px;
     height: 250px;
-    margin-bottom: 20px;
   }
 }

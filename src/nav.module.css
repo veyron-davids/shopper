@@ -1,0 +1,45 @@
+.navbar {
+  display: flex;
+  background-color: black;
+  height: 80px;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+}
+
+.nav__tag {
+  margin-left: auto;
+  display: flex;
+  margin-right: 8%;
+  flex: 1;
+}
+
+@media screen and (max-width: 400px) {
+  .nav__logout {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .nav__logout {
+    display: none;
+  }
+}
+
+.nav__logout:hover {
+  color: #dc143c;
+}
+
+.nav__link {
+  text-align: center;
+  text-decoration: none;
+  list-style: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: #fff;
+}

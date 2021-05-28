@@ -1,20 +1,17 @@
-import React, { useContext } from "react";
+import React, { useEffect } from "react";
 import AdminNavbar from "./adminNavbar";
-import CurrentUserContext from "./context/current-user-context";
 import CustomerNavbar from "./customerNavbar";
+import {useSelector } from "react-redux";
 import Logo from "./logo";
 import UserNavbar from "./userNavbar";
-import classes from "./Styles.module.css";
+import navStyle from "./nav.module.css";
 
 const Navbar = () => {
-  const currentUser = useContext(CurrentUserContext);
-
-  // console.log(currentUser);
-
+ const currentUser = useSelector((state) => state.auth);
   return (
-    <nav className={classes.navbar}>
+    <nav className={navStyle.navbar}>
       <Logo />
-      <div className={classes.nav__tag}>
+      <div className={navStyle.nav__tag}>
         {!currentUser && <CustomerNavbar />}
 
         {currentUser && currentUser.isAdmin === false ? <UserNavbar /> : null}

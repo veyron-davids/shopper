@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import { withRouter } from "react-router-dom";
 import "./cart-dropdown.styles.scss";
 import CartItem from "./cart-item.component";
-import { CartContext } from "./cart.provider";
 import CustomButton from "./custom-button.component";
 
 const CartDropdown = ({ history }) => {

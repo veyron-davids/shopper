@@ -1,165 +1,349 @@
-import axios from "axios";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import { withStyles } from "@material-ui/core/styles";
+import TextField from "@material-ui/core/TextField";
+import { default as axios, default as Axios } from "axios";
 import React, { useState } from "react";
-import Roll from "react-reveal/Roll";
-import { toast } from "react-toastify";
-import CategorySelect from "./categorySelect";
 import { UPLOAD_SERVER } from "./config";
-import DropZone from "./dropZone";
-import TagSelect from "./tagSelect";
-import UploadInput from "./uploadInput";
+import classes from "./productUpload.module.css";
+
+const tags = [
+  {
+    value: "Good",
+  },
+  {
+    value: "Better",
+  },
+  {
+    value: "Best",
+  },
+  {
+    value: "Worst",
+  },
+];
+const promotions = [
+  {
+    value: "true",
+  },
+  {
+    value: "false",
+  },
+];
+const top = [
+  {
+    value: "true",
+  },
+  {
+    value: "false",
+  },
+];
+const categories = [
+  {
+    value: "Good",
+  },
+  {
+    value: "Better",
+  },
+  {
+    value: "Best",
+  },
+  {
+    value: "Worst",
+  },
+];
+
+const CssTextField = withStyles({
+  root: {
+    "& label.Mui-focused": {
+      color: "#32ca84",
+    },
+    "& .MuiInput-underline:after": {
+      borderBottomColor: "green",
+    },
+    "& .MuiOutlinedInput-root": {
+      "& fieldset": {
+        borderColor: "black",
+      },
+      // "&:hover fieldset": {
+      //   borderColor: "yellow",
+      // },
+      "&.Mui-focused fieldset": {
+        borderColor: "green",
+      },
+    },
+  },
+})(TextField);
 
 const ProductUpload = ({ history }) => {
-  const [pname, setPname] = useState("");
-  const [description, setDescription] = useState("");
-  const [price, setPrice] = useState(0);
-  const [numberInStock, setNumberInStock] = useState(0);
-  const [tag, setTag] = useState(1);
-  const [category, setCategory] = useState(1);
-  const [errors, setErrors] = useState("");
+  const [pnameError, setPnameError] = useState();
+  const [descriptionError, setDescriptionError] = useState();
+  const [priceError, setPriceError] = useState();
+  const [imageError, setimageError] = useState();
+  const [numberInStockError, setNumberInStockError] = useState();
+  const [tagError, setTagError] = useState();
+  const [categoryError, setCategoryError] = useState();
 
-  const [Images, setImages] = useState([]); // images being received back from server
-  const [preview, setPreview] = useState([]); // images that is displayed for preview before sending to server
-  const [serverImageOne, setServerImageOne] = useState(null); // images that is being sent to server
-  const [serverImageTwo, setServerImageTwo] = useState(null); // images that is being sent to server
-  const [serverImageThree, setServerImageThree] = useState(null); // images that is being sent to server
-  const [data, setData] = useState([]); // images that is being sent to server
+  const [preview, setPreview] = useState(null);
+  const [data, setData] = useState([]);
 
-  const onPnameChange = (event) => {
-    setPname(event.currentTarget.value);
-  };
+  const [values, setValues] = useState({
+    pname: "",
+    description: "",
+    price: "",
+    numberInStock: "",
+    tag: "",
+    category: "",
+    promotions: true,
+    top: true,
+  });
 
-  const onDescriptionChange = (event) => {
-    setDescription(event.currentTarget.value);
-  };
-
-  const onPriceChange = (event) => {
-    setPrice(event.currentTarget.value);
-  };
-  const onStockChange = (event) => {
-    setNumberInStock(event.currentTarget.value);
-  };
-
-  const onTagChange = (event) => {
-    setTag(event.currentTarget.value);
-  };
-
-  const onCategorySelectChange = (event) => {
-    setCategory(event.currentTarget.value);
-  };
-
-  const updateImages = (newImages) => {
-    setImages(newImages);
-  };
-
-
-  const handleChange = (event) => {
-    preview.push(URL.createObjectURL(event.target.files[0]));
-    // setServerImageOne(event.target.files[0]);
-    // setServerImageTwo(event.target.files[1]);
-    // setServerImageThree(event.target.files[2]);
-    data.push(event.target.files);
-  };
-  // console.log(serverImageOne, serverImageTwo, serverImageThree)
-
-  const Delete = (image) => {
-    const currentIndex = Images.indexOf(image);
-
-    let newImages = [...Images];
-    newImages.splice(currentIndex, 1);
-
-    setImages(newImages);
-    updateImages(newImages);
-  };
-
-  const onSubmit = async (event) => {
-    const variables = {
-      pname: pname,
-      description: description,
-      price: price,
-      numberInStock: numberInStock,
-      category: category,
-      tag: tag,
+  const onDrop = (files) => {
+    let formData = new FormData();
+    const config = {
+      header: { "content-type": "multipart/form-data" },
     };
-   
-    // validateUser(variables);
-    const fd = new FormData();
-    // fd.append("file", data);
-    // fd.append("file", serverImageTwo);
-    // fd.append("file", serverImageThree);
-    for (const a in variables) {
-      fd.append(a, variables[a]);
-      // console.log(a, variables[a]);
-    }
-    data.map(item => {
-   for (let i = 0; i < 3; i++) {
-     fd.append("file", {});
-    // fd."file"
-     console.log(item[i]);
-   }
-    })
- 
-    try {
-      const response = await axios.post(UPLOAD_SERVER, fd);
-      // console.log(response);
-      toast.success(`${response.data.pname} has been uploaded successfully `);
-      // setPname("");
-      // setDescription("");
-      // setPrice("");
-      // window.location = "/admin";
-    } catch (err) {
-      if (err.response) {
-        //  toast.error(err.response.message)
+    formData.append("file", files[0]);
+    Axios.post(UPLOAD_SERVER, formData, config).then((response) => {
+      if (response.data.success) {
+        console.log(response);
+      } else {
+        alert("Failed to save the Image in Server");
       }
-    }
+    });
+  };
+
+  const handlePreview = async (event) => {
+    data.push(event.target.files);
+    // generateBase64FromImage(event.target.files[0])
+    //   .then((b64) => {
+    //     setPreview(b64);
+    //   })
+    //   .catch((e) => {});
+  };
+
+  console.log(data);
+  const handleChange = (prop) => (event) => {
+    setValues({ ...values, [prop]: event.target.value });
+  };
+
+  const doSubmit = async () => {
+    const fd = new FormData();
+    fd.append("file", data);
+    // fd.append(data, values);
+    const config = {
+      headers: {
+        "content-type": "multipart/form-data",
+      },
+    };
+
+    try {
+      const response = await axios.post(UPLOAD_SERVER, values);
+      console.log(response);
+      if (response.status === 200) {
+        window.location = "/admin";
+      }
+    } catch (err) {}
+  };
+
+  const Text = () => {
+    return <span className={classes.preview__span}>Image Preview</span>;
   };
   return (
-    <div className="ProductUpload">
-      <div className="upload-container">
-        <span className="upload-title">Create a New Product</span>
-        <div className="image-preview">
+    <div className={classes.ProductUpload}>
+      <div className={classes.upload__container}>
+        <span className={classes.upload__title}>Create a New Product</span>
+        {/* <div className={classes.image__preview}>
           {preview.map((image, index) => (
             <Roll left>
               <DropZone onDelete={Delete} image={image} key={index} />
             </Roll>
           ))}
-        </div>
+        </div> */}
         <form>
-          <UploadInput
-            label="Image"
-            type="file"
-            name="file"
-            onChange={handleChange}
-            multiple="multiple"
-          />
-          <UploadInput label="Name" onChange={onPnameChange} value={pname} />
-          <UploadInput
-            label="Description"
-            onChange={onDescriptionChange}
-            value={description}
-          />
-          <UploadInput
-            label="Price(₦)"
-            onChange={onPriceChange}
-            value={price}
-          />
-          <UploadInput
-            label="Number In Stock"
-            onChange={onStockChange}
-            value={numberInStock}
-          />
-          <CategorySelect
-            onCategorySelectChange={onCategorySelectChange}
-            CategoryValue={category}
-          />
-          <TagSelect onTagChange={onTagChange} tagValue={tag} />
+          <div className={classes.form__up}>
+            <CssTextField
+              className={classes.text__field}
+              label="Product Name"
+              autoFocus
+              variant="outlined"
+              required
+              id="custom-css-outlined-input"
+              value={values.pname}
+              onChange={handleChange("pname")}
+              helperText={pnameError}
+              error={pnameError != null}
+            />
+            <CssTextField
+              className={classes.text__field}
+              label="Price"
+              type="Number"
+              variant="outlined"
+              required
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">₦</InputAdornment>
+                ),
+              }}
+              id="custom-css-outlined-input"
+              value={values.price}
+              onChange={handleChange("price")}
+              helperText={priceError}
+              error={priceError != null}
+            />
+          </div>
+          <div className={classes.form__up}>
+            <CssTextField
+              className={classes.text__field}
+              label="Product Count"
+              variant="outlined"
+              type="number"
+              required
+              id="custom-css-outlined-input"
+              value={values.numberInStock}
+              onChange={handleChange("numberInStock")}
+              helperText={numberInStockError}
+              error={numberInStockError != null}
+            />
+            <CssTextField
+              className={classes.text__field}
+              label=""
+              accept=".jpg, .jpeg, .png"
+              variant="outlined"
+              type="file"
+              required
+              id="custom-css-outlined-input"
+              value={values.image}
+              onChange={handlePreview}
+              helperText={imageError}
+              error={imageError != null}
+            />
+          </div>
+          <div className={classes.form__up}>
+            <CssTextField
+              className={classes.text__field}
+              label="Product tag"
+              variant="outlined"
+              select
+              SelectProps={{
+                native: true,
+              }}
+              id="custom-css-outlined-input"
+              value={values.tag}
+              onChange={handleChange("tag")}
+              helperText={tagError}
+              error={tagError != null}
+            >
+              {tags.map((option) => (
+                <option
+                  className={classes.select}
+                  key={option.value}
+                  value={option.value}
+                >
+                  {option.value}
+                </option>
+              ))}
+            </CssTextField>
+            <CssTextField
+              className={classes.text__field}
+              label="Product Category"
+              variant="outlined"
+              select
+              SelectProps={{
+                native: true,
+              }}
+              id="custom-css-outlined-input"
+              value={values.category}
+              onChange={handleChange("category")}
+              helperText={categoryError}
+              error={categoryError != null}
+            >
+              {categories.map((option) => (
+                <option
+                  className={classes.select}
+                  key={option.value}
+                  value={option.value}
+                >
+                  {option.value}
+                </option>
+              ))}
+            </CssTextField>
+          </div>
+          <div className={classes.form__up}>
+            <CssTextField
+              className={classes.text__field}
+              label="Promotions"
+              variant="outlined"
+              select
+              SelectProps={{
+                native: true,
+              }}
+              id="custom-css-outlined-input"
+              value={values.tag}
+              onChange={handleChange("promotions")}
+              helperText={tagError}
+              error={tagError != null}
+            >
+              {promotions.map((option) => (
+                <option
+                  className={classes.select}
+                  key={option.value}
+                  value={option.value}
+                >
+                  {option.value}
+                </option>
+              ))}
+            </CssTextField>
+            <CssTextField
+              className={classes.text__field}
+              label="Top Sellers"
+              variant="outlined"
+              select
+              SelectProps={{
+                native: true,
+              }}
+              id="custom-css-outlined-input"
+              value={values.category}
+              onChange={handleChange("Top")}
+              helperText={categoryError}
+              error={categoryError != null}
+            >
+              {top.map((option) => (
+                <option
+                  className={classes.select}
+                  key={option.value}
+                  value={option.value}
+                >
+                  {option.value}
+                </option>
+              ))}
+            </CssTextField>
+          </div>
+          <div className={classes.form__up}>
+            <CssTextField
+              className={classes.text__field}
+              label="Description"
+              variant="outlined"
+              required
+              id="outlined-multiline-static"
+              multiline
+              rows={10.5}
+              value={values.description}
+              onChange={handleChange("description")}
+              helperText={descriptionError}
+              error={descriptionError != null}
+            />
+            <div
+              className={classes.preview__img}
+              style={{
+                backgroundImage: `url('${preview}')`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            >
+              {preview == null ? <Text /> : null}
+            </div>
+          </div>
         </form>
-        <button
-          onClick={() => {
-            onSubmit();
-            history.push("/admin");
-          }}
-          className="upload-submit-button"
-        >
+        <button onClick={doSubmit} className={classes.custom__button__up}>
           UPLOAD PRODUCT
         </button>
       </div>

@@ -1,0 +1,81 @@
+.signin {
+  display: flex;
+  flex-wrap: wrap;
+  height: 80vh;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.signin__cont {
+  display: flex;
+
+  padding-top: 40px;
+  /* justify-content: center; */
+  align-items: center;
+  flex-flow: column;
+  width: 40%;
+  height: 70vh;
+  background-color: white;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  /* padding: 20px 0; */
+}
+form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 70px;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.sign__title {
+  align-self: center;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.button {
+  padding: 20px;
+}
+
+.details {
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+  text-align: center;
+  color: #32ca84;
+}
+
+.sign__in__container {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.custom__button__in {
+  width: 65%;
+  height: 50px;
+  letter-spacing: 0.5px;
+  line-height: 50px;
+  padding: 0 35px 0 35px;
+  font-size: 15px;
+  font-weight: bold;
+  background-color: #32ca84;;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+}
+span{
+  padding-right: 5px;
+}
+
+
+.field {
+  width: 100%;
+}
