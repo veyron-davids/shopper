@@ -1,7 +1,7 @@
 import React from "react";
+import Apple from "./assets/apple.png";
+import Google from "./assets/googl.png";
 import bottomNav from "./bottomNav.module.css";
-import Google from "./assets/googl.png"
-import Apple from "./assets/apple.png"
 import Logo from "./logo";
 
 const BottomNav = () => {
@@ -20,8 +20,12 @@ const BottomNav = () => {
           </div>
         </div>
         <div className={bottomNav.container__icon}>
-          <img src={Google} alt="" className={bottomNav.img} />
-          <img src={Apple} alt="" className={bottomNav.img} />
+          <a href="https://play.google.com/store/apps" target="_blank">
+            <img src={Google} alt="" className={bottomNav.img} />
+          </a>
+          <a href="https://www.apple.com/ng/ios/app-store/" target="_blank">
+            <img src={Apple} alt="" className={bottomNav.img} />
+          </a>
           {/* <img src={Apple} alt="" className={bottomNav.img} /> */}
         </div>
       </div>
