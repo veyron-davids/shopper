@@ -1,0 +1,21 @@
+.file{
+  width: 48%;
+  height: 50px;
+  border-radius: 5px;
+  border: 1px solid rgb(119, 24, 24);
+  background-color: white;
+  padding: 15px;
+}
+
+.upload__container {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  justify-content: center;
+  align-content: center;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: white;
+  padding: 50px;
+  margin-top: 40px;
+  border-radius: 5px;
+}

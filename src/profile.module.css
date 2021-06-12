@@ -1,0 +1,73 @@
+.container {
+  display: flex;
+  height: 120px;
+  width: 250px;
+  border: 1px solid grey;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.icon {
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 5px;
+}
+
+.texts {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+
+.texts span:nth-child(1) {
+  font-size: 1.1rem;
+  line-height: 1.3rem;
+  font-weight: bold;
+  color: black;
+}
+
+.texts span:last-child {
+  font-size: 0.9rem;
+  line-height: 1.3rem;
+  color: rgb(43, 40, 40);
+}
+
+.profile__container {
+  margin: 50px 8% 0px 8%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.profile__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  height: auto;
+  padding: 20px;
+  background-color: white;
+  box-shadow: -2px 2px 14px -1px rgba(0, 0, 0, 0.59);
+  -webkit-box-shadow: -2px 2px 14px -1px rgba(0, 0, 0, 0.59);
+  -moz-box-shadow: -2px 2px 14px -1px rgba(0, 0, 0, 0.59);
+}
+
+.level__one {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.level__two {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 15px;
+}
+.level__three {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 15px;
+}

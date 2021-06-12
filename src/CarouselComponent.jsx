@@ -1,23 +1,15 @@
-import React from "react";
-import Carousel from "react-material-ui-carousel";
-import autoBind from "auto-bind";
-import "./CarouselComponent.scss";
-
 import {
+  Button,
   Card,
   CardContent,
   CardMedia,
-  Typography,
   Grid,
-  Button,
-  Checkbox,
-  FormControlLabel,
-  Radio,
-  RadioGroup,
-  FormLabel,
-  Slider,
-  IconButton,
+  Typography,
 } from "@material-ui/core";
+import autoBind from "auto-bind";
+import React from "react";
+import Carousel from "react-material-ui-carousel";
+import "./CarouselComponent.scss";
 
 function Banner(props) {
   if (props.newProp) console.log(props.newProp);
@@ -75,47 +67,53 @@ function Banner(props) {
 
 const items = [
   {
-    Name: "Electronics",
-    Caption: "Electrify your friends!",
+    Name: "Trending Styles",
+    Caption: "Electrify with fashion!",
     contentPosition: "left",
     Items: [
       {
-        Name: "Macbook Pro",
-        Image: "https://source.unsplash.com/featured/?macbook",
+        Name: "Top Notch Ladies",
+        Image:
+          "https://images.unsplash.com/photo-1622181046883-6886e8a44ca9?ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDg0fFM0TUtMQXNCQjc0fHxlbnwwfHx8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
       },
       {
-        Name: "iPhone",
-        Image: "https://source.unsplash.com/featured/?iphone",
+        Name: "Vogue",
+        Image:
+          "https://images.unsplash.com/photo-1622220835869-5e3e9bc89136?ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDMyfFM0TUtMQXNCQjc0fHxlbnwwfHx8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
       },
     ],
   },
   {
-    Name: "Home Appliances",
-    Caption: "Say no to manual home labour!",
+    Name: "Charity Shopping",
+    Caption: "Helping the less privledged in style!",
     contentPosition: "middle",
     Items: [
       {
-        Name: "Washing Machine WX9102",
-        Image: "https://source.unsplash.com/featured/?washingmachine",
+        Name: "Make a change",
+        Image:
+          "https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y2hhcml0eXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
       },
       {
-        Name: "Learus Vacuum Cleaner",
-        Image: "https://source.unsplash.com/featured/?vacuum,cleaner",
+        Name: "Show some Love",
+        Image:
+          "https://images.unsplash.com/photo-1608555855762-2b657eb1c348?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fGNoYXJpdHl8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60r",
       },
     ],
   },
   {
-    Name: "Decoratives",
-    Caption: "Give style and color to your living room!",
+    Name: "Top Picks",
+    Caption: "Peep our top designs!",
     contentPosition: "right",
     Items: [
       {
-        Name: "Living Room Lamp",
-        Image: "https://source.unsplash.com/featured/?lamp",
+        Name: "Throw the Cap",
+        Image:
+          "https://images.unsplash.com/photo-1523380744952-b7e00e6e2ffa?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cHJpbnRlZCUyMCUyMHNoaXJ0c3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
       },
       {
-        Name: "Floral Vase",
-        Image: "https://source.unsplash.com/featured/?vase",
+        Name: "Peace in Style",
+        Image:
+          "https://images.unsplash.com/photo-1503342452485-86b7f54527ef?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDd8fHByaW50ZWQlMjAlMjBzaGlydHN8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
       },
     ],
   },
@@ -182,7 +180,7 @@ class BannerExample extends React.Component {
 
   render() {
     return (
-      <div style={{ marginTop: "10px", color: "#494949",  }}>
+      <div style={{ marginTop: "10px", color: "#494949" }}>
         <Carousel
           className="Example"
           autoPlay={this.state.autoPlay}
@@ -192,18 +190,9 @@ class BannerExample extends React.Component {
           cycleNavigation={this.state.cycleNavigation}
           navButtonsAlwaysVisible={this.state.navButtonsAlwaysVisible}
           navButtonsAlwaysInvisible={this.state.navButtonsAlwaysInvisible}
-          next={(now, previous) =>
-            console.log(
-            )
-          }
-          prev={(now, previous) =>
-            console.log(
-            )
-          }
-          onChange={(now, previous) =>
-            console.log(
-            )
-          }
+          next={(now, previous) => console.log()}
+          prev={(now, previous) => console.log()}
+          onChange={(now, previous) => console.log()}
           // fullHeightHover={false}
           // navButtonsProps={{style: {backgroundColor: 'cornflowerblue', borderRadius: 0}}}
           // navButtonsWrapperProps={{style: {bottom: '0', top: 'unset', }}}

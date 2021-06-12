@@ -5,7 +5,7 @@ const initialState = [];
 
 export const fetchUser = createAsyncThunk("auth/fetchUser", async () => {
   const user = await auth.getCurrentUser();
-  console.log(user);
+
   return user;
 });
 
@@ -21,3 +21,5 @@ const authSlice = createSlice({
 });
 
 export default authSlice.reducer;
+
+export const selectUser = (state) => state.auth;

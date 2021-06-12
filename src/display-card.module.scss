@@ -1,8 +1,10 @@
 .wrapper {
-  width: 300px;
-  height: 360px;
+  width: 250px;
+  height: 350px;
+  user-select: none;
+  // margin-bottom: 80px;
   background: white;
-   font-family: 'Open Sans Condensed', sans-serif;
+  font-family: "Open Sans Condensed", sans-serif;
   cursor: pointer;
   position: relative;
   overflow: hidden;
@@ -19,6 +21,25 @@
     width: 100%;
     height: 100%;
 
+    .image {
+      height: 80%;
+      width: 100%;
+      background: no-repeat center center;
+      -webkit-background-size: 100%;
+      -moz-background-size: 100%;
+      -o-background-size: 100%;
+      background-size: 100%;
+      &:hover {
+        transform: scale(1.1);
+        transition: transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+      }
+    }
+
+     .image > img {
+      height: 100%;
+      width: 100%;
+      background: no-repeat center center;
+    }
     .bottom {
       width: 200%;
       height: 20%;
@@ -30,7 +51,7 @@
       .left {
         height: 100%;
         width: 50%;
-        background: #f4f4f4;
+        background: white;
         position: relative;
         float: left;
 
@@ -42,11 +63,10 @@
         }
         .name {
           position: absolute;
-          top: 20px;
-          right: 5%;
-           color: rgb(119, 24, 24);
-          font-size: 1.2rem;
-          font-weight: bold;
+          top: 15px;
+          left: 5%;
+          font-size: 0.87rem;
+          font-weight: 500;
           text-transform: capitalize;
         }
 
@@ -54,8 +74,8 @@
           position: absolute;
           bottom: 10px;
           left: 5%;
-          font-size: 1.1rem;
-          font-weight: normal;
+          font-size: 0.87rem;
+          font-weight: bold;
         }
         .buy {
           float: right;
@@ -88,6 +108,7 @@
         color: black;
         float: right;
         height: 200%;
+        position: relative;
         overflow: hidden;
         .details__two {
           font-weight: bold;
@@ -96,16 +117,41 @@
           float: right;
           width: calc(70% - 40px);
         }
+        .span {
+          position: absolute;
+          top: 15px;
+          left: 49%;
+          font-size: 1.2rem;
+          text-align: center;
+          color: black;
+        }
         .done {
           width: calc(30% - 2px);
           float: left;
           transition: transform 0.5s;
           border-right: solid thin rgba(255, 255, 255, 0.3);
           height: 50%;
-          background-color: #32ca84;
-          i {
+          // background-color: #32ca84;
+          background: rgb(119, 24, 24);
+          .it {
             font-size: 30px;
-            padding: 30px;
+            color: white;
+            margin-top: 15px;
+            margin-left: 20px;
+          }
+        }
+        .inc {
+          width: calc(30% - 2px);
+          float: right;
+          transition: transform 0.5s;
+          border-right: solid thin rgba(255, 255, 255, 0.3);
+          height: 50%;
+          background-color: #32ca84;
+          .i {
+            font-size: 30px;
+            margin-top: 15px;
+            margin-left: 20px;
+
             color: white;
           }
         }
@@ -129,39 +175,35 @@
             color: white;
           }
         }
-        &:hover {
-          .remove,
-          .done {
-            transform: translateY(-100%);
-          }
-        }
+        // &:hover {
+        //   .remove,
+        //   .done {
+        //     transform: translateY(-100%);
+        //   }
+        // }
       }
     }
   }
 
   .inside {
     z-index: 9;
-    background: rgb(119, 24, 24);
+    background: white;
+    border-bottom: 1px solid #eaeded;
     width: 140px;
     height: 140px;
     position: absolute;
     top: -70px;
-    color: white;
     right: -70px;
     border-radius: 0px 0px 200px 200px;
     transition: all 0.5s, border-radius 2s, top 1s;
     overflow: hidden;
     .icon {
       position: absolute;
-      right: 65px;
+      font-size: inherit;
+      right: 85px;
       top: 85px;
-      color: white;
+      color: rgb(119, 24, 24);
       opacity: 1;
-
-      span{
-        color: white;
-         font-size: 1.1rem;
-      }
     }
     &:hover {
       width: 100%;
@@ -181,6 +223,8 @@
       }
     }
     .contents {
+      display: flex;
+      flex-direction: column;
       padding: 5%;
       opacity: 0;
       transform: scale(0.5);
@@ -198,6 +242,9 @@
       p {
         font-size: 13px;
       }
+      span {
+        font-size: 0.875rem;
+      }
     }
   }
 }
@@ -206,5 +253,6 @@
   .wrapper {
     width: 250px;
     height: 250px;
+    margin-bottom: 20px;
   }
 }

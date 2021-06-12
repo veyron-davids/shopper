@@ -1,27 +1,35 @@
 import React, { useEffect, useState } from "react";
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
+import { SERVER_IMAGE } from "./config";
+import Styles from "./Styles.module.css";
 
-function ProductImageGallery(props) {
+function ProductImageGallery({ detail }) {
+ 
   const [Images, setImages] = useState([]);
 
   useEffect(() => {
-    if (props.detail.images && props.detail.images.length > 0) {
+    if (detail) {
       let images = [];
-      props.detail.images &&
-        images.push({
-          original: props.detail.images,
-          thumbnail: props.detail.images,
+      detail.images &&
+        detail.images.map((item) => {
+          images.push({
+            original: `${SERVER_IMAGE}/${item}`,
+            thumbnail: `${SERVER_IMAGE}/${item}`,
+          });
         });
       setImages(images);
     }
-  }, [props.detail]);
-  console.log(Images);
-  console.log(props.detail.images);
+  }, [detail]);
 
   return (
-    <div className="productGallery">
-      <ImageGallery items={Images} />
+    <div className={Styles.productGallery}>
+      <ImageGallery
+        items={Images}
+        autoPlay
+        showNav={false}
+        showPlayButton={false}
+      />
     </div>
   );
 }

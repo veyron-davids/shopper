@@ -13,7 +13,7 @@ const CustomerNavbar = () => {
         to="/sign"
         style={{ textDecoration: "none", color: "white" }}
       >
-        <AiOutlineUser />
+        <AiOutlineUser className={navStyle.ex} />
         <span>Login</span>
       </Link>
       <Link
@@ -21,7 +21,7 @@ const CustomerNavbar = () => {
         to="/register"
         style={{ textDecoration: "none", color: "white" }}
       >
-        <FiUserPlus />
+        <FiUserPlus className={navStyle.ex} />
         <span>Register</span>
       </Link>
       <Link
@@ -29,7 +29,7 @@ const CustomerNavbar = () => {
         to="/help"
         style={{ textDecoration: "none", color: "white" }}
       >
-        <BiHelpCircle />
+        <BiHelpCircle className={navStyle.ex} />
         <span>Help</span>
       </Link>
     </Fragment>

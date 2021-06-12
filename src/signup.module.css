@@ -2,49 +2,48 @@
   display: flex;
   flex-wrap: wrap;
   margin-top: 40px;
-  height: 100vh;
+  height: 80vh;
   width: 100%;
-  margin-bottom: 50px;
   justify-content: center;
 }
 
-.sign-title {
+.sign__title {
   text-align: center;
   padding: 10px;
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 50px;
   width: 100%;
-  color: #32ca84;
-  
+  color: black;
 }
 
+#textFd{
+  width: 49%;
+}
 
-
-.sign-up-container {
+.sign__up__container {
   width: 50%;
   justify-content: center;
   align-content: center;
-  margin: 10px 300px 30px 300px;
- box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   background-color: white;
   padding: 50px;
+  height: 80vh;
 }
 
-.form-up {
+.form__up {
   display: flex;
   width: 100%;
   padding: 10px 0;
   justify-content: space-between;
 }
 
-
-.text-field{
-  width: 48%;
- margin-left: 15px;
+.text__field {
+  width: 49%;
+  margin-left: 15px;
 }
 
-.custom-button-up {
+.custom__button__up {
   width: 48%;
   height: 50px;
   letter-spacing: 0.5px;
@@ -52,22 +51,20 @@
   padding: 0 35px 0 35px;
   font-size: 15px;
   font-weight: bold;
-  background-color: #32ca84;;
+  background-color: rgb(119, 24, 24);
   color: white;
   border: none;
-  border-radius: 10px;
+  border-radius: 5px;
+  outline: 1px solid rgb(119, 24, 24);
   cursor: pointer;
   display: flex;
   justify-content: center;
   margin-top: 25px;
 }
 
-
-
-
-.details-up {
+.details__up {
   color: black;
   margin-top: 20px;
   padding-left: 5px;
-margin-left: 40px;
+  margin-left: 5px;
 }

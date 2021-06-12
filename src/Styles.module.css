@@ -3,7 +3,7 @@
   font-size: 1.1rem;
   line-height: 1.2rem;
   background-color: #eaeded;
-  font-family: "Open Sans Condensed", sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 /***************************************/
@@ -25,8 +25,6 @@
   color: rebeccapurple;
 }
 
-
-
 /* @media screen and (max-width: 400px) {
   .navbar {
     height: 50px;
@@ -36,14 +34,9 @@
 
 .paginate {
   margin: auto;
-  color: #32ca84;
+  padding-top: 120px;
+  justify-self: flex-end;
 }
-
-
-
-
-
-
 
 /* @media screen and (max-width: 400px) {
   .nav-link {
@@ -63,31 +56,12 @@
   }
 } */
 
-.cart__count {
-  color: white;
-  font-size: 0.8rem;
-  background-color: #32ca84;
-  height: 18px;
-  width: 18px;
-  border-radius: 50%;
-  position: absolute;
-  top: 2px;
-  right: 75px;
-  font-weight: bold;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  animation-name: love;
-  animation-duration: 180s;
-}
-
 .logo {
   color: #fff;
   text-align: center;
   text-decoration: none;
   list-style: none;
-  margin-left: 7%;
+  margin-left: 8%;
   font-size: 1.7rem;
   font-weight: bold;
   display: flex;
@@ -385,13 +359,19 @@ button {
 /***************************************/
 
 .product__page__display {
-  margin-top: 50px;
   display: flex;
   flex-wrap: wrap;
+  flex-direction: row;
+  user-select: none;
   justify-content: space-between;
+  align-items: center;
+  margin-top: 50px;
+  padding-bottom: 30px;
+  padding: auto 10px;
 }
 .product__page {
   margin: 50px 8% 0px 8%;
+  user-select: none;
 }
 
 .card__details {
@@ -417,9 +397,8 @@ button {
 /***************************************/
 
 .footer {
-  background-color: #32ca84;
+  background-color: #323232;
   height: 30vh;
- 
 }
 
 /***************************************/
@@ -445,29 +424,40 @@ button {
 /***************************************/
 
 .productPreview {
-  margin: 50px 12% 0 12%;
+  margin: 50px 7% 0px 7%;
+  user-select: none;
+  
 }
 .product__outline {
   display: flex;
-  margin-bottom: 50px;
+  /* margin-bottom: 50px; */
   overflow: hidden;
   margin-top: 50px;
+  padding-bottom: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .PreviewDetails {
   display: flex;
   flex-direction: column;
-  width: 60%;
+  width: 50%;
   background-color: white;
-  height: 80vh;
-  border: 1px solid black;
+  border-radius: 5px;
+  height: 81vh;
+  /* border: 1px solid black; */
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  margin-left: 50px;
+  margin-left: 5px;
 }
 
 .productGallery {
-  width: 30%;
+  width: 50%;
+  max-width: 50%;
+  background-color: white;
+  /* overflow: hidden; */
   height: auto;
+  border-radius: 5px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   /* border: 1px solid black; */
 }
 
@@ -477,6 +467,7 @@ button {
 
 .preview__text {
   text-transform: capitalize;
+  padding-left: 20px;
 }
 
 /***************************************/
@@ -808,14 +799,6 @@ button {
   border: 2px solid black;
 } */
 
-.fp__container {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background: #f8f8f8ad;
-}
 .fp__container .fp__loader {
   top: 50%;
   left: 48%;
@@ -950,3 +933,49 @@ button {
   font-size: 1.5rem;
   color: black;
 }
+
+.input__slider {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 12px;
+}
+
+.radio {
+  display: flex;
+  flex-direction: row;
+  height: 2rem;
+  align-items: center;
+  justify-content: flex-start;
+}
+.radio__span {
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+  color: #282828;
+}
+.radio__span__two {
+  font-size: 0.85rem;
+  margin-bottom: 10px;
+  text-align: end;
+  margin-left: auto;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  color: rgb(119, 24, 24);
+  text-align: center;
+  cursor: pointer;
+  margin-right: 5px;
+  padding-top: 6px;
+  border-radius: 5px;
+  margin-top: 3px;
+  width: 60px;
+  height: 35px;
+  font-weight: 500;
+}
+
+.radio__span__two:hover {
+  background-color: #d2f1e3;
+}
+
+/*********************************/
+/* spinners
+/************/

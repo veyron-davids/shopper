@@ -6,10 +6,11 @@ import Logo from "./logo";
 import UserNavbar from "./userNavbar";
 import navStyle from "./nav.module.css";
 
+
 const Navbar = () => {
  const currentUser = useSelector((state) => state.auth);
   return (
-    <nav className={navStyle.navbar}>
+    <nav className={navStyle.navbar} >
       <Logo />
       <div className={navStyle.nav__tag}>
         {!currentUser && <CustomerNavbar />}

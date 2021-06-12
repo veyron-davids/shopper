@@ -1,7 +1,8 @@
 body {
   margin: 0 auto;
-  font-family: "Open Sans Condensed", sans-serif;
-  background-color: #EAEDED;
+  /* font-family: 'Poppins', sans-serif; */
+  font-family: "Roboto", sans-serif;
+  background-color: #f5f5f5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;

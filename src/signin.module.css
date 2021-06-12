@@ -9,18 +9,18 @@
 
 .signin__cont {
   display: flex;
-
+  margin-top: 50px;
   padding-top: 40px;
   /* justify-content: center; */
   align-items: center;
   flex-flow: column;
   width: 40%;
-  height: 70vh;
+  height: 75vh;
   background-color: white;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   /* padding: 20px 0; */
 }
-form {
+.form {
   display: flex;
   flex-direction: column;
   margin-top: 70px;
@@ -43,7 +43,7 @@ form {
   align-items: center;
   margin-top: 30px;
   text-align: center;
-  color: #32ca84;
+  color: black
 }
 
 .sign__in__container {
@@ -55,27 +55,58 @@ form {
 }
 
 .custom__button__in {
-  width: 65%;
+  width: 100%;
   height: 50px;
   letter-spacing: 0.5px;
   line-height: 50px;
   padding: 0 35px 0 35px;
   font-size: 15px;
   font-weight: bold;
-  background-color: #32ca84;;
+  background-color: rgb(119, 24, 24);
   color: white;
   border: none;
-  border-radius: 10px;
+  border-radius: 5px;
+  outline: 1px dotted rgb(119, 24, 24);
   cursor: pointer;
   display: flex;
   justify-content: center;
   margin-top: 25px;
 }
-span{
+span {
   padding-right: 5px;
 }
 
-
 .field {
   width: 100%;
+}
+
+.reset {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 30px;
+  margin-top: 25px;
+  font-size: 0.875rem;
+  padding-left: 6px;
+}
+
+.reset span {
+  color: rgb(119, 24, 24);
+  cursor: pointer;
+}
+
+.check {
+  display: flex;
+  width: auto;
+}
+
+.check > input {
+  height: 20px;
+  color: rgb(119, 24, 24);
+}
+
+.check > label {
+  font-size: 0.875rem;
+  width: 100px;
+  display: flex;
 }

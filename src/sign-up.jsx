@@ -1,18 +1,19 @@
-import { withStyles } from "@material-ui/core/styles";
+import FormControl from "@material-ui/core/FormControl";
+import { makeStyles, withStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import auth from "./services/authService";
 import * as userService from "./services/userService";
-import "./signup.css";
+import Sing from "./signup.module.css";
 
-const CssTextField = withStyles({
+const CssOutline = withStyles({
   root: {
     "& label.Mui-focused": {
-      color: "#32ca84",
+      color: "rgb(119, 24, 24)",
     },
     "& .MuiInput-underline:after": {
-      borderBottomColor: "green",
+      borderBottomColor: "rgb(119, 24, 24)",
     },
     "& .MuiOutlinedInput-root": {
       "& fieldset": {
@@ -22,13 +23,43 @@ const CssTextField = withStyles({
       //   borderColor: "yellow",
       // },
       "&.Mui-focused fieldset": {
-        borderColor: "green",
+        borderColor: "rgb(119, 24, 24)",
+      },
+    },
+  },
+})(FormControl);
+
+const CssTextField = withStyles({
+  root: {
+    "& label.Mui-focused": {
+      color: "rgb(119, 24, 24)",
+    },
+    "& .MuiInput-underline:after": {
+      borderBottomColor: "rgb(119, 24, 24)",
+    },
+    "& .MuiOutlinedInput-root": {
+      "& fieldset": {
+        borderColor: "black",
+      },
+      // "&:hover fieldset": {
+      //   borderColor: "yellow",
+      // },
+      "&.Mui-focused fieldset": {
+        borderColor: "rgb(119, 24, 24)",
       },
     },
   },
 })(TextField);
 
+const useStyles = makeStyles((theme) => ({
+  textField: {
+    width: "40ch",
+  },
+}));
+
 const SignUp = (props) => {
+  const pass = useStyles();
+
   const [fError, setFerror] = useState();
   const [lError, setLerror] = useState();
   const [pError, setPerror] = useState();
@@ -49,6 +80,33 @@ const SignUp = (props) => {
     setValues({ ...values, [prop]: event.target.value });
   };
 
+  const handleClickShowPassword = () => {
+    setValues({ ...values, showPassword: !values.showPassword });
+  };
+
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
+
+  const resetPassError = () => {
+    setPerror(null);
+  };
+  const resetMailError = () => {
+    setEmerror(null);
+  };
+  const resetAdError = () => {
+    setAderror(null);
+  };
+  const resetFError = () => {
+    setFerror(null);
+  };
+  const resetLError = () => {
+    setLerror(null);
+  };
+  const resetPhError = () => {
+    setPherror(null);
+  };
+
   const doSubmit = async () => {
     setAderror(null);
     setEmerror(null);
@@ -58,7 +116,7 @@ const SignUp = (props) => {
     setPherror(null);
     try {
       const response = await userService.register(values);
-      console.log(response);
+
       if (response.data.errors) {
         validate(response);
         return;
@@ -93,18 +151,19 @@ const SignUp = (props) => {
   };
 
   return (
-    <div className="signup">
-      <div className="sign-up-container">
-        <div className="sign-title">
-          <span className="sign-title">Create Account</span>
+    <div className={Sing.signup}>
+      <div className={Sing.sign__up__container}>
+        <div className={Sing.sign__title}>
+          <span className={Sing.sign__title}>Create Account</span>
         </div>
         <form>
-          <div className="form-up">
+          <div className={Sing.form__up}>
             <CssTextField
-              className="text-field"
+              className={Sing.text__field}
               label="First Name"
               autoFocus
               required
+              onBlur={resetFError}
               variant="outlined"
               id="custom-css-outlined-input"
               helperText={fError}
@@ -115,8 +174,9 @@ const SignUp = (props) => {
 
             <CssTextField
               label="Last Name"
-              className="text-field"
+              className={Sing.text__field}
               required
+              onBlur={resetLError}
               variant="outlined"
               id="custom-css-outlined-input"
               helperText={lError}
@@ -125,12 +185,47 @@ const SignUp = (props) => {
               onChange={handleChange("LastName")}
             />
           </div>
-          <br />
-          <div className="form-up">
+          <div className={Sing.form__up}>
+            {/* <CssOutline
+              variant="outlined"
+              required
+              className={clsx(pass.textField)}
+              fullWidth
+            >
+              <InputLabel htmlFor="outlined-adornment-password">
+                Password
+              </InputLabel>
+              <OutlinedInput
+                id={Sing.textFd}
+                id="outlined-adornment-password"
+                type={values.showPassword ? "text" : "password"}
+                className={Sing.text__field}
+                required
+                helperText={pError}
+                error={pError != null}
+                value={values.password}
+                onChange={handleChange("password")}
+                endAdornment={
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={handleClickShowPassword}
+                      onMouseDown={handleMouseDownPassword}
+                      edge="end"
+                    >
+                      {values.showPassword ? <Visibility /> : <VisibilityOff />}
+                    </IconButton>
+                  </InputAdornment>
+                }
+                labelWidth={100}
+              />
+            </CssOutline> */}
+
             <CssTextField
-              className="text-field"
+              className={Sing.text__field}
               label="Password"
               type="password"
+              onBlur={resetPassError}
               required
               variant="outlined"
               id="custom-css-outlined-input"
@@ -142,7 +237,8 @@ const SignUp = (props) => {
             <CssTextField
               label="Address"
               type="text"
-              className="text-field"
+              onBlur={resetAdError}
+              className={Sing.text__field}
               required
               variant="outlined"
               id="custom-css-outlined-input"
@@ -152,11 +248,12 @@ const SignUp = (props) => {
               onChange={handleChange("address")}
             />
           </div>
-          <div className="form-up">
+          <div className={Sing.form__up}>
             <CssTextField
-              className="text-field"
+              className={Sing.text__field}
               label="Email Address"
               type="email"
+              onBlur={resetMailError}
               required
               variant="outlined"
               id="custom-css-outlined-input"
@@ -168,8 +265,9 @@ const SignUp = (props) => {
             <CssTextField
               label="Phone Number"
               type="Number"
+              onBlur={resetPhError}
               required
-              className="text-field"
+              className={Sing.text__field}
               variant="outlined"
               id="custom-css-outlined-input"
               helperText={phError}
@@ -179,10 +277,10 @@ const SignUp = (props) => {
             />
           </div>
         </form>
-        <button className="custom-button-up" onClick={doSubmit}>
-          CREA
+        <button className={Sing.custom__button__up} onClick={doSubmit}>
+          CREATE ACCOUNT
         </button>
-        <div className="details-up">
+        <div className={Sing.details__up}>
           <span>Aleady have an account? </span>
           <Link to="/sign" style={{ textDecoration: "none", color: "#dc143c" }}>
             Sign In Now

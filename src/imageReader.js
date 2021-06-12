@@ -4,7 +4,6 @@ export const generateBase64FromImage = (imageFile) => {
     reader.onload = (e) => resolve(e.target.result);
     reader.onerror = (err) => reject(err);
   });
-
-  reader.readAsDataURL(imageFile);
+  if (imageFile) reader.readAsDataURL(imageFile);
   return promise;
 };

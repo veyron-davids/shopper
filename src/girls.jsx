@@ -1,39 +1,14 @@
-import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import React from "react";
 import { IoIosArrowForward } from "react-icons/io";
 import { useSelector } from "react-redux";
-// import http from "./services/httpService";
-import Zoom from "react-reveal/Zoom";
-import Card from "./Card";
 import Jump from "react-reveal/Jump";
+import { NavLink } from "react-router-dom";
+import AdvertCard from "./display-card";
 import girls from "./girls.module.css";
-import { selectAllProducts } from "./store/product-slice";
-// import { FETCH_DEALS } from "./config"
+import { selectAllLadies } from "./store/product-slice";
 
 const Girls = () => {
-  const [deals, setDeals] = useState([]);
-
-  const prod = useSelector(selectAllProducts);
-  console.log(deals);
-  prod.map((item) => {
-    if (item.promotions === true) {
-      deals.push(item);
-    }
-  });
-
-  // const fetchDeals = async () => {
-  //   try {
-  //     const response = http.get(FETCH_DEALS);
-  //     console.log(response);
-  //     if (response.status === 200) {
-  //       setDeals(response.data);
-  //     }
-  //   } catch (error) {}
-  // };
-
-  // useEffect(() => {
-  //   fetchDeals()
-  // }, []);
+  const ladies = useSelector(selectAllLadies);
 
   return (
     <div className={girls.container}>
@@ -52,12 +27,8 @@ const Girls = () => {
         </Jump>
       </div>
       <div className={girls.container__content}>
-        {deals.length &&
-          deals.map((item) => (
-            <Zoom cascade>
-              <Card key={item._id} items={item} />
-            </Zoom>
-          ))}
+        {ladies.length &&
+          ladies.map((item) => <AdvertCard key={item._id} items={item} />)}
       </div>
     </div>
   );

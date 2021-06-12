@@ -1,0 +1,114 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  user-select: none;
+}
+
+.container__one {
+  display: block;
+  width: 250px;
+  /* padding-top: 10px; */
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  background-color: white;
+  border-bottom: 1px solid #f5f5f5;
+}
+.container__two {
+  display: flex;
+  width: 250px;
+  background-color: white;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: 15px;
+  border-bottom: 1px solid #f5f5f5;
+}
+.container__three {
+  display: flex;
+  width: 250px;
+  padding-top: 5px;
+  align-items: center;
+  padding-bottom: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  background-color: white;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: 15px;
+  border-bottom: 1px solid #f5f5f5;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.dl {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.dt {
+  width: 100%;
+  color: #282828;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 0.875rem;
+  padding-left: 10px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+
+.dl span {
+  width: 100%;
+  /* height: 35px; */
+  cursor: pointer;
+  line-height: 2rem;
+  font-size: 0.9rem;
+  text-transform: capitalize;
+  font-family: "Poppins", sans-serif;
+  padding-left: 35px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+.dl span:hover {
+  background-color: #eaeded;
+}
+
+.price {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.price span:nth-child(1) {
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  padding-top: 10px;
+  text-align: start;
+}
+.price span:nth-child(2) {
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: rgb(119, 24, 24);
+  text-align: center;
+  cursor: pointer;
+  margin-right: 5px;
+  padding-top: 6px;
+  border-radius: 5px;
+  margin-top: 3px;
+  width: 60px;
+  height: 35px;
+  font-weight: 500;
+}
+.price span:nth-child(2):hover {
+  background-color: rgb(119, 24, 24);
+  color: white;
+}
+
+input {
+  width: 100%;
+}

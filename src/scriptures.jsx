@@ -1,37 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import { IoIosArrowForward } from "react-icons/io";
 import { useSelector } from "react-redux";
-// import http from "./services/httpService";
-import Fade from "react-reveal/Fade";
 import { NavLink } from "react-router-dom";
-import Card from "./Card";
-import { selectAllProducts } from "./store/product-slice";
+import AdvertCard from "./display-card";
 import scriptureStyles from "./scriptures.module.css";
+import { selectAllScriptures } from "./store/product-slice";
 // import { FETCH_DEALS } from "./config"
 
 const Scriptures = () => {
-  const [deals, setDeals] = useState([]);
-
-  const prod = useSelector(selectAllProducts);
-  prod.map((item) => {
-    if (item.promotions === true) {
-      deals.push(item);
-    }
-  });
-
-  // const fetchDeals = async () => {
-  //   try {
-  //     const response = http.get(FETCH_DEALS);
-  //     console.log(response);
-  //     if (response.status === 200) {
-  //       setDeals(response.data);
-  //     }
-  //   } catch (error) {}
-  // };
-
-  // useEffect(() => {
-  //   fetchDeals()
-  // }, []);
+  const scriptures = useSelector(selectAllScriptures);
 
   return (
     <div className={scriptureStyles.container}>
@@ -48,12 +25,8 @@ const Scriptures = () => {
         </span>
       </div>
       <div className={scriptureStyles.container__content}>
-        {deals.length &&
-          deals.map((item) => (
-            <Fade>
-              <Card key={item._id} items={item} />
-            </Fade>
-          ))}
+        {scriptures.length &&
+          scriptures.map((item) => <AdvertCard key={item._id} items={item} />)}
       </div>
     </div>
   );

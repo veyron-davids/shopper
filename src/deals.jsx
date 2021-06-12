@@ -1,21 +1,13 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { IoIosArrowForward } from "react-icons/io";
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import Rotate from "react-reveal/Rotate";
-import Card from "./Card";
-import { fetchDeals, selectAllDeals } from "./store/product-slice";
-import { useDispatch, useSelector } from "react-redux";
 import dealStyle from "./deals.module.css";
+import AdvertCard from "./display-card";
+import { selectAllDeals } from "./store/product-slice";
 
 const Deals = () => {
-  const dispatch = useDispatch();
-  const deals = useSelector(selectAllDeals)
-
-  console.log(deals)
-
-  useEffect(() => {
-    dispatch(fetchDeals());
-  }, [dispatch]);
+  const deals = useSelector(selectAllDeals);
 
   return (
     <div className={dealStyle.container}>
@@ -23,7 +15,7 @@ const Deals = () => {
         <span>Deals Just for you</span>
         <span>
           <NavLink
-            to="./products"
+            to="./deals-page"
             style={{ textDecoration: "none", color: "white" }}
           >
             VIEW ALL
@@ -33,11 +25,7 @@ const Deals = () => {
       </div>
       <div className={dealStyle.container__content}>
         {deals.length &&
-          deals.map((item) => (
-            <Rotate>
-              <Card key={item._id} items={item} />
-            </Rotate>
-          ))}
+          deals.map((item) => <AdvertCard key={item._id} items={item} />)}
       </div>
     </div>
   );

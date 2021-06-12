@@ -1,37 +1,14 @@
-import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import React from "react";
 import { IoIosArrowForward } from "react-icons/io";
 import { useSelector } from "react-redux";
-// import http from "./services/httpService";
-import Roll from "react-reveal";
-import Card from "./Card";
+import { NavLink } from "react-router-dom";
 import boyStyles from "./boys.module.css";
-import { selectAllProducts } from "./store/product-slice";
+import AdvertCard from "./display-card";
+import { selectAllMen } from "./store/product-slice";
 // import { FETCH_DEALS } from "./config"
 
 const Boys = () => {
-  const [deals, setDeals] = useState([]);
-
-  const prod = useSelector(selectAllProducts);
-  prod.map((item) => {
-    if (item.promotions === true) {
-      deals.push(item);
-    }
-  });
-
-  // const fetchDeals = async () => {
-  //   try {
-  //     const response = http.get(FETCH_DEALS);
-  //     console.log(response);
-  //     if (response.status === 200) {
-  //       setDeals(response.data);
-  //     }
-  //   } catch (error) {}
-  // };
-
-  // useEffect(() => {
-  //   fetchDeals()
-  // }, []);
+  const men = useSelector(selectAllMen);
 
   return (
     <div className={boyStyles.container}>
@@ -48,12 +25,8 @@ const Boys = () => {
         </span>
       </div>
       <div className={boyStyles.container__content}>
-        {deals.length &&
-          deals.map((item) => (
-            <Roll left>
-              <Card key={item._id} items={item} />
-            </Roll>
-          ))}
+        {men.length &&
+          men.map((item) => <AdvertCard key={item._id} items={item} />)}
       </div>
     </div>
   );

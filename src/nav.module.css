@@ -1,15 +1,20 @@
 .navbar {
+  /* position: sticky;
+  top: 0; */
+  z-index: 9000;
   display: flex;
-  background-color: black;
-  height: 80px;
+  background-color: #282828;
   align-items: center;
-  justify-content: space-between;
+  height: 80px;
+  width: 100%;
   color: white;
+  user-select: none;
 }
 
+
 .nav__tag {
-  margin-left: auto;
   display: flex;
+  justify-content: space-around;
   margin-right: 8%;
   flex: 1;
 }
@@ -31,15 +36,178 @@
 }
 
 .nav__link {
-  text-align: center;
+  text-align: end;
   text-decoration: none;
   list-style: none;
-  font-size: 1.2rem;
+  font-size: 0.9rem;
   cursor: pointer;
   display: flex;
+  text-transform: capitalize;
+  width: 100%;
   flex: 1;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   position: relative;
   color: #fff;
+}
+
+.nav__link > span {
+  margin-top: 9px;
+  margin-left: 2px;
+}
+
+.cart__count {
+  color: white;
+  font-size: 12px;
+  background-color: #32ca84;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  position: absolute;
+  top: 0px;
+  right: 27px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation-name: love;
+  animation-duration: 180s;
+}
+
+.ex {
+  font-size: 1.5rem;
+}
+
+@keyframes love {
+  0% {
+    background-color: #d83434;
+  }
+  5% {
+    background-color: #2aad2a;
+  }
+  10% {
+    background-color: #582a72;
+  }
+  15% {
+    background-color: #932389;
+  }
+  20% {
+    background-color: #d83434;
+  }
+  25% {
+    background-color: #2aad2a;
+  }
+  30% {
+    background-color: #9acd32;
+  }
+  35% {
+    background-color: #932389;
+  }
+  40% {
+    background-color: #87ceeb;
+  }
+  50% {
+    background-color: #ff6347;
+  }
+  55% {
+    background-color: #fff5ee;
+  }
+
+  60% {
+    background-color: #2aad2a;
+  }
+  65% {
+    background-color: #582a72;
+  }
+  70% {
+    background-color: #932389;
+  }
+  75% {
+    background-color: #d83434;
+  }
+  80% {
+    background-color: #2aad2a;
+  }
+  85% {
+    background-color: #9acd32;
+  }
+  85% {
+    background-color: #932389;
+  }
+  90% {
+    background-color: #87ceeb;
+  }
+  95% {
+    background-color: #ff6347;
+  }
+  100% {
+    background-color: #fff5ee;
+  }
+}
+
+@keyframes load {
+  0% {
+    color: #d83434;
+  }
+  5% {
+    color: #2aad2a;
+  }
+  10% {
+    color: #582a72;
+  }
+  15% {
+    color: #932389;
+  }
+  20% {
+    color: #d83434;
+  }
+  25% {
+    color: #2aad2a;
+  }
+  30% {
+    color: #9acd32;
+  }
+  35% {
+    color: #932389;
+  }
+  40% {
+    color: #87ceeb;
+  }
+  50% {
+    color: #ff6347;
+  }
+  55% {
+    color: #fff5ee;
+  }
+
+  60% {
+    color: #2aad2a;
+  }
+  65% {
+    color: #582a72;
+  }
+  70% {
+    color: #932389;
+  }
+  75% {
+    color: #d83434;
+  }
+  80% {
+    color: #2aad2a;
+  }
+  85% {
+    color: #9acd32;
+  }
+  85% {
+    color: #932389;
+  }
+  90% {
+    color: #87ceeb;
+  }
+  95% {
+    color: #ff6347;
+  }
+  100% {
+    color: #fff5ee;
+  }
 }
